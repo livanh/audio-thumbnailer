@@ -2,36 +2,15 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-function gtk_find_icon() {
-	python -c "import gtk; print gtk.icon_theme_get_default().lookup_icon(\"$1\",$2,0).get_filename()"
-}
-
 if [ -z "$1" ]; then exit 0; fi
 
 INFILE="$1"
 OUTFILE="$2"
 SIZE="$3"
 
-case $(echo $SIZE | cut -d x -f 1 ) in
-  256)	ICON_SIZE=128;;
-  192)	ICON_SIZE=96;;
-  128)	ICON_SIZE=64;;
-   96)	ICON_SIZE=48;;
-   72)	ICON_SIZE=36;;
-   64)	ICON_SIZE=32;;
-   48)	ICON_SIZE=24;;
-    *)	ICON_SIZE=16;;
-esac
-
-MIMETYPE=$( mimetype "$1" | sed s/.*\:\ // | sed s/\\\//-/ )
-ICON_FILE="$(gtk_find_icon $MIMETYPE $ICON_SIZE)"
-
 if [ -d /sys/class/power_supply/AC* ]; then
-	if acpi -a | grep on-line; then
-		sox "$INFILE" -n remix 1 spectrogram -x $SIZE -y $((SIZE+1)) -r -o "$OUTFILE"
-		convert "$OUTFILE" "$ICON_FILE" -gravity SouthEast -composite "$OUTFILE"
-	fi
-else
-	echo No usable image found!
+    if acpi -a | grep on-line; then
+        sox "$INFILE" -n remix 1 spectrogram -x $SIZE -y $((SIZE+1)) -r -o "$OUTFILE"
+    fi
 fi
 
