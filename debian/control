@@ -1,0 +1,14 @@
+Source: audio-thumbnailer
+Maintainer: Livanh <livanh@bulletmail.org>
+Section: gnome
+Priority: optional
+Standards-Version: 3.9.2
+Build-Depends: debhelper (>= 9)
+
+Package: audio-thumbnailer
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, imagemagick, sox
+Priority: optional
+Section: gnome
+Description: Thumbnailer for audio files 
+ This script creates thumbnails for audio files (currently only AMR and WAVE) in Nautilus, Nemo, PCManFM, and other file managers following GNOME conventions. It uses SOX to generate the spectrogram of the file.
