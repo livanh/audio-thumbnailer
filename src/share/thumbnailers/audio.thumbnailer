@@ -1,4 +1,4 @@
 [Thumbnailer Entry]
 TryExec=audio-thumbnailer
 Exec=audio-thumbnailer %i %o %s
-MimeType=audio/AMR;audio/x-wav
+MimeType=audio/AMR;audio/x-wav;

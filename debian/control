@@ -1,8 +1,0 @@
-Package: audio-thumbnailer
-Architecture: all
-Maintainer: Livanh <livanh@bulletmail.org>
-Depends: imagemagick, sox
-Priority: optional
-Version: 0.2
-Description: Thumbnailer for audio files 
- This script creates thumbnails for audio files (currently only AMR and WAVE) in PCManFM and other file managers, generating the spectrogram with SOX
