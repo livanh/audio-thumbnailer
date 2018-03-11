@@ -10,7 +10,8 @@ SIZE="$3"
 
 if [ -d /sys/class/power_supply/AC* ]; then
     if acpi -a | grep on-line; then
-        sox "$INFILE" -n remix 1 spectrogram -x $SIZE -y $((SIZE+1)) -r -o "$OUTFILE"
+        DURATION="$(ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 "$INFILE")"
+        ffmpeg -i "$INFILE" -f sox - | sox -p -n remix 1 spectrogram -x $SIZE -y $((SIZE+1)) -r -d ${DURATION} -o "$OUTFILE"
     fi
 fi
 
