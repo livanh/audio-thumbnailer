@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 9)
 
 Package: audio-thumbnailer
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}, imagemagick, sox
+Depends: ${shlibs:Depends}, ${misc:Depends}, sox, ffmpeg
 Priority: optional
 Section: gnome
 Description: Thumbnailer for audio files 
