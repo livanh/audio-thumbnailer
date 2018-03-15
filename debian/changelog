@@ -1,6 +1,9 @@
-audio-thumbnailer (0.3-1) UNRELEASED; urgency=low
+audio-thumbnailer (0.4-1) UNRELEASED; urgency=low
 
   [ Livanh ]
   * Add more filetypes using ffmpeg.
 
- -- Livanh <livanh@bulletmail.org>  Sun, 11 Mar 2018 20:06:39 +0100
+  [ Livahn ]
+  * Add support for album art in MP3 and OGG files.
+
+ -- Livanh <livanh@bulletmail.org>  Thu, 15 Mar 2018 20:09:11 +0100
